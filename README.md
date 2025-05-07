@@ -8,3 +8,8 @@
 <p align="center" width="100%">
 <img src="figure/Example_results.png"  width="80%" height="80%">
 </p>
+
+# Results
+<p align="center" width="100%">
+<img src="figure/result.png"  width="80%" height="80%">
+</p>
