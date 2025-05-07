@@ -1,4 +1,5 @@
-# ideoPath-LLaVA: Pathology Diagnostic Reasoning Through Video Instruction Tuning
+# VideoPath-LLaVA: Pathology Diagnostic Reasoning Through Video Instruction Tuning
+
 
 <p align="center" width="100%">
 <img src="figure/Network.png"  width="80%" height="80%">
