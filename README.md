@@ -22,8 +22,9 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 ## 📚 Datasets
 
 ### 🔹 [ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train)
-The videos data is 100 GB, if GoogleDrive doesn't work let use Hugging Face links bellow:
-### 🔹 [ViDRiP_Instruct_Train_Video_GoogleDrive](https://drive.google.com/drive/folders/1oxZlaJpE7PGDYt32LeoGgIzwEvWdnupY?usp=sharing)
+The videos data is ~ 100 GB:
+
+[//]: # (### 🔹 [ViDRiP_Instruct_Train_Video_GoogleDrive]&#40;https://drive.google.com/drive/folders/1oxZlaJpE7PGDYt32LeoGgIzwEvWdnupY?usp=sharing&#41;)
 ### 🔹 [ViDRiP_Instruct_Train_Video_Hugging Face](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train) (There is 10 zip files)
 
 - 4,000+ instruction-style samples
