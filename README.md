@@ -22,7 +22,9 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 ## 📚 Datasets
 
 ### 🔹 [ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train)
-### 🔹 [ViDRiP_Instruct_Train_Video](https://drive.google.com/drive/folders/1oxZlaJpE7PGDYt32LeoGgIzwEvWdnupY?usp=sharing)
+### 🔹 [ViDRiP_Instruct_Train_Video_GoogleDrive](https://drive.google.com/drive/folders/1oxZlaJpE7PGDYt32LeoGgIzwEvWdnupY?usp=sharing)
+### 🔹 [ViDRiP_Instruct_Train_Video_Hugging Face](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train) (There is 10 zip files)
+
 - 4,000+ instruction-style samples
 - Each sample includes:
   - A pathology video clip
@@ -36,6 +38,8 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 
 - Held-out test set of diagnostic Q&A pairs
 - Used for benchmarking reasoning performance
+
+
 
 ---
 
