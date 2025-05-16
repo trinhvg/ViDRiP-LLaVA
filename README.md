@@ -1,5 +1,5 @@
 
-# 🧬 VViDRiP-LLaVA: A Dataset and Benchmark for Diagnostic Reasoning from Pathology Videos
+# 🧬 ViDRiP-LLaVA: A Dataset and Benchmark for Diagnostic Reasoning from Pathology Videos
 
 **ViDRiP-LLaVA** is a vision-language framework designed for instruction-based diagnostic reasoning using both image patches and video clips from pathology slides. It builds on LLaVA and extends it to the medical domain with domain-specific datasets and fine-tuned models.
 
