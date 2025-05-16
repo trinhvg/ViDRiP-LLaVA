@@ -1,12 +1,12 @@
 
-# 🧬 VidDiag-LLaVA: Multimodal Diagnostic Reasoning in Pathology
+# 🧬 ViDRiP-LLaVA: Multimodal Diagnostic Reasoning in Pathology
 
-**VidDiag-LLaVA** is a vision-language framework designed for instruction-based diagnostic reasoning using both image patches and video clips from pathology slides. It builds on LLaVA and extends it to the medical domain with domain-specific datasets and fine-tuned models.
+**ViDRiP-LLaVA** is a vision-language framework designed for instruction-based diagnostic reasoning using both image patches and video clips from pathology slides. It builds on LLaVA and extends it to the medical domain with domain-specific datasets and fine-tuned models.
 
 
-🧠 Introducing our VidDiag-LLaVA: the first multimodal model for diagnostic reasoning in pathology through video-based instruction. 🔬📽️
+🧠 Introducing our ViDRiP-LLaVA: the first multimodal model for diagnostic reasoning in pathology through video-based instruction. 🔬📽️
 
-Our method leverages chain-of-thought (CoT) prompting to distill the reasoning capabilities of LLMs. VidDiag-LLaVA generates both detailed histological descriptions and final diagnoses, simulating how pathologists analyze and sign out cases.
+Our method leverages chain-of-thought (CoT) prompting to distill the reasoning capabilities of LLMs. ViDRiP-LLaVA generates both detailed histological descriptions and final diagnoses, simulating how pathologists analyze and sign out cases.
 
 📚 Trained on 4,278 instructional video pairs
 
@@ -21,7 +21,7 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 
 ## 📚 Datasets
 
-### 🔹 [VidDiag_Instruct_Train](https://huggingface.co/datasets/trinhvg/VidDiag_Instruct_Train)
+### 🔹 [ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train)
 
 - 4,000+ instruction-style samples
 - Each sample includes:
@@ -31,7 +31,7 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 - Format: JSON + MP4
 - Croissant-compliant metadata for structured use
 
-### 🔹 [VidDiag_Instruct_Test](https://huggingface.co/datasets/trinhvg/VidDiag_Instruct_Test)
+### 🔹 [ViDRiP_Instruct_Test](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Test)
 
 - Held-out test set of diagnostic Q&A pairs
 - Used for benchmarking reasoning performance
@@ -40,16 +40,16 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 
 ## 🤖 Models
 
-### 🔸 [VidDiag_LLaVA_video](https://huggingface.co/trinhvg/VidDiag_LLaVA_video)
+### 🔸 [ViDRiP_LLaVA_video](https://huggingface.co/trinhvg/ViDRiP_LLaVA_video)
 
 - Vision-language model for video-based diagnostic reasoning
-- Trained on `VidDiag_Instruct_Train`
+- Trained on `ViDRiP_Instruct_Train`
 - Suitable for:
   - Medical VQA
   - Instructional explanation generation
   - Educational pathology summarization
 
-### 🔸 [VidDiag_LLaVA_image](https://huggingface.co/trinhvg/VidDiag_LLaVA_image)
+### 🔸 [ViDRiP_LLaVA_image](https://huggingface.co/trinhvg/ViDRiP_LLaVA_image)
 
 - Vision-language model for patch-based diagnostic prompts
 - Useful for pathology captioning and single-frame inference
@@ -74,21 +74,21 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 ```
 ### 🧪 Usage / Demo
 ```bash
-./doc/VidDiag_LLaVA_trial.py
+./doc/ViDRiP_LLaVA_trial.py
 ```
 
 
-### 🔧 Evaluate
+### 🔧 Evaluate on our video dataset
 
 We use [lmms_eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) to evaluate the performance of video diagnostic reasoning.
 
-To benchmark `VidDiag-LLaVA` and compare it with other models:
+To benchmark `ViDRiP-LLaVA` and compare it with other models:
 
 1. Clone the `lmms_eval` repo
 2. Copy our evaluation task folder into it:
 
 ```bash
-cp -r lmms_eval/tasks/VidDiag_Instruct_Test /path/to/lmms_eval/tasks/
+cp -r lmms_eval/tasks/ViDRiP_Instruct_Test /path/to/lmms_eval/tasks/
 ```
 You can then run evaluation using the standard lmms_eval CLI interface.
 
