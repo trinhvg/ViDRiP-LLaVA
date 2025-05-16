@@ -1,0 +1,5 @@
+datasets:
+  - json_path: /ssd1/trinh/data/ViLa/images/PathResVL_instruct_pathasst_phase2.json #36867
+    sampling_strategy: all
+  - json_path: /ssd1/trinh/data/ViLa/images/PathResVL_instruct_quilt.json #103496
+    sampling_strategy: all

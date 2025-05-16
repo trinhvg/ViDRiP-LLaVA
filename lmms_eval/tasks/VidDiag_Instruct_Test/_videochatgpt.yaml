@@ -1,0 +1,5 @@
+group: VidDiag_Instruct_Test
+task:
+  - videochatgpt_gen
+  - videochatgpt_temporal
+  - videochatgpt_consistency

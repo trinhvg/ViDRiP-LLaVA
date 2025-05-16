@@ -1,0 +1,97 @@
+
+# 🧬 VidDiag-LLaVA: Multimodal Diagnostic Reasoning in Pathology
+
+**VidDiag-LLaVA** is a vision-language framework designed for instruction-based diagnostic reasoning using both image patches and video clips from pathology slides. It builds on LLaVA and extends it to the medical domain with domain-specific datasets and fine-tuned models.
+
+
+🧠 Introducing our VidDiag-LLaVA: the first multimodal model for diagnostic reasoning in pathology through video-based instruction. 🔬📽️
+
+Our method leverages chain-of-thought (CoT) prompting to distill the reasoning capabilities of LLMs. VidDiag-LLaVA generates both detailed histological descriptions and final diagnoses, simulating how pathologists analyze and sign out cases.
+
+📚 Trained on 4,278 instructional video pairs
+
+⚙️ Combines single-image + clip transfer and fine-tuning on segmented diagnostic videos
+
+
+---
+<p align="center" width="100%">
+<img src="assets/Network.png"  width="80%" height="80%">
+</p>
+
+
+## 📚 Datasets
+
+### 🔹 [VidDiag_Instruct_Train](https://huggingface.co/datasets/trinhvg/VidDiag_Instruct_Train)
+
+- 4,000+ instruction-style samples
+- Each sample includes:
+  - A pathology video clip
+  - A diagnostic question
+  - A multi-turn reasoning answer
+- Format: JSON + MP4
+- Croissant-compliant metadata for structured use
+
+### 🔹 [VidDiag_Instruct_Test](https://huggingface.co/datasets/trinhvg/VidDiag_Instruct_Test)
+
+- Held-out test set of diagnostic Q&A pairs
+- Used for benchmarking reasoning performance
+
+---
+
+## 🤖 Models
+
+### 🔸 [VidDiag_LLaVA_video](https://huggingface.co/trinhvg/VidDiag_LLaVA_video)
+
+- Vision-language model for video-based diagnostic reasoning
+- Trained on `VidDiag_Instruct_Train`
+- Suitable for:
+  - Medical VQA
+  - Instructional explanation generation
+  - Educational pathology summarization
+
+### 🔸 [VidDiag_LLaVA_image](https://huggingface.co/trinhvg/VidDiag_LLaVA_image)
+
+- Vision-language model for patch-based diagnostic prompts
+- Useful for pathology captioning and single-frame inference
+
+
+
+
+## 🚀 Quickstart
+
+### 🔧 Fine-tuning the model on video dataset
+```bash
+./scripts/train/finetune_ov_video.sh
+```
+
+### 🪄 Fine-tuning with LoRA
+```bash
+./scripts/train/finetune_ov_video_lora.sh
+```
+🔗 Merge LoRA weights
+```bash
+./scripts/train/merge_lora_weights.py
+```
+### 🧪 Usage / Demo
+```bash
+./doc/VidDiag_LLaVA_trial.py
+```
+
+
+### 🔧 Evaluate
+
+We use [lmms_eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) to evaluate the performance of video diagnostic reasoning.
+
+To benchmark `VidDiag-LLaVA` and compare it with other models:
+
+1. Clone the `lmms_eval` repo
+2. Copy our evaluation task folder into it:
+
+```bash
+cp -r lmms_eval/tasks/VidDiag_Instruct_Test /path/to/lmms_eval/tasks/
+```
+You can then run evaluation using the standard lmms_eval CLI interface.
+
+
+### Citation:
+Coming soon
