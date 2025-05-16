@@ -93,6 +93,7 @@ cp -r lmms_eval/tasks/ViDRiP_Instruct_Test /path/to/lmms_eval/tasks/
 ```
 You can then run evaluation using the standard lmms_eval CLI interface.
 
+license: cc-by-nc-nd-3.0
 
 ### Citation:
 Coming soon
