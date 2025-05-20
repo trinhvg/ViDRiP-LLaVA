@@ -19,7 +19,7 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 </p>
 
 
-## 📚 Datasets
+## 📚 Video Datasets
 
 ### 🔹 [ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train)
 The videos data is ~ 100 GB:
@@ -41,6 +41,11 @@ The videos data is ~ 100 GB:
 - Held-out test set of diagnostic Q&A pairs
 - Used for benchmarking reasoning performance
 
+## 📚 Image Datasets
+We use publicly available datasets: Quilt-LLaVA and PathAsst.
+Please refer to their respective repositories for download instructions.
+- [**Quilt-LLaVA**](https://github.com/aldraus/quilt-llava): A vision-language dataset for pathology adapted from LLaVA.
+- [**PathAsst**](https://github.com/superjamessyx/Generative-Foundation-AI-Assistant-for-Pathology): A generative assistant for pathology with curated image-text pairs.
 
 
 ---
