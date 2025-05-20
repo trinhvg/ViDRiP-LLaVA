@@ -108,3 +108,31 @@ license: cc-by-nc-nd-3.0
 
 ### Citation:
 Coming soon
+
+
+
+## 📄 Usage and License Notices
+
+**ViDRiP-LLaVA** (Vision-language Diagnostic Reasoning in Pathology), including its dataset, code, and model checkpoints, is released strictly for **non-commercial research purposes only**.
+
+### 📁 Licenses
+
+* **Dataset:**
+  Licensed under [**CC BY-NC-ND 3.0**](https://creativecommons.org/licenses/by-nc-nd/3.0/) (Attribution–NonCommercial–NoDerivatives)
+* **Code and pretrained models:**
+  Licensed under [**CC BY-NC 3.0**](https://creativecommons.org/licenses/by-nc/3.0/) (Attribution–NonCommercial)
+
+### ⚙️ Dependencies and Components
+
+This project may incorporate or build upon resources such as **LLaVA-Next**, **QUILT-1M**, **LLaMA**, **PathAsst**, and **GPT-4**, each subject to their own licenses and **Terms of Use**.
+
+### 🎥 Source Acknowledgment
+
+ViDRiP-LLaVA includes data derived from **public educational pathology videos hosted on YouTube**.
+All content usage complies with [**YouTube’s Terms of Service**](https://www.youtube.com/t/terms), and the **intellectual property rights of the original pathologist creators are fully acknowledged and respected**.
+
+### 🚫 Restrictions
+
+* Not for **commercial use**
+* Not to be used in **clinical care** or **medical decision-making**
+* For **academic research, development, and evaluation only**
