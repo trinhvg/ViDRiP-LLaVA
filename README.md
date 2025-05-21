@@ -21,6 +21,23 @@ Our method leverages chain-of-thought (CoT) prompting to distill the reasoning c
 
 ## 📚 Video Datasets
 
+### 🎥 Released Video Format
+
+All clips are:
+- **Cleaned** using a Visual Data Refinement pipeline (temporal trimming + YoloPath filtering + OCR exclusion + inpainting)
+- **Downsampled** to **1–5 FPS** to reduce file size and support fair-use compliance
+- **Muted** to avoid redistribution of original YouTube audio
+
+These steps preserve diagnostic signal while respecting the rights of YouTube creators and complying with [YouTube’s Terms of Service](https://www.youtube.com/t/terms).
+
+### 🔍 Training vs. Public Release Notice
+The ViDRiP-LLaVA models were trained on an internal dataset version that included:
+- Full-frame-rate video clips
+- Visual content **prior to OCR filtering**
+
+All **evaluations** (including those in our benchmark) are conducted using the **publicly released test set**, ensuring full reproducibility.
+
+
 ### 🔹 [ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train)
 The videos data is ~ 100 GB:
 
@@ -40,6 +57,8 @@ The videos data is ~ 100 GB:
 
 - Held-out test set of diagnostic Q&A pairs
 - Used for benchmarking reasoning performance
+
+
 
 ## 📚 Image Datasets
 We use publicly available datasets: Quilt-LLaVA and PathAsst.

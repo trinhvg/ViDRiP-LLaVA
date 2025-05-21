@@ -33,9 +33,6 @@ tokenizer, model, image_processor, max_length = load_pretrained_model(pretrained
 model.eval()
 
 
-
-
-
 # Function to extract frames from video
 def load_video(video_path, max_frames_num):
     if type(video_path) == str:
@@ -54,7 +51,6 @@ def load_video(video_path, max_frames_num):
 
 
 
-video_id = 0
 if video:
     video_frames = load_video(video_path, 32)
 
