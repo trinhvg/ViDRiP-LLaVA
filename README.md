@@ -43,7 +43,7 @@ Both use the SigLIP image encoder and a Qwen2.5-7B language decoder (LLaVA-OneVi
 | Split | Content | Link |
 |:--|:--|:--|
 | Train | 4,036 instruction–response pairs (JSON) + videos (~60 GB, 6 zip parts) | [🤗 trinhvg/ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train) |
-| Test | Held-out diagnostic Q&A (JSON) + videos | `ViDRiP_Instruct_Test/` in the same 🤗 dataset · [Google Drive](https://drive.google.com/drive/folders/1oxZlaJpE7PGDYt32LeoGgIzwEvWdnupY?usp=sharing) |
+| Test | Held-out diagnostic Q&A (JSON) + videos (`Test_Videos.zip`) | [🤗 ViDRiP_Instruct_Train/ViDRiP_Instruct_Test](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train/tree/main/ViDRiP_Instruct_Test) |
 
 Each sample has a pathology video clip, a diagnostic question, and an answer that links the morphology to a diagnosis.
 
