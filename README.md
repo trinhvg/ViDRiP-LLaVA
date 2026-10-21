@@ -10,9 +10,10 @@
 ViDRiP-LLaVA is a pathology vision–language model that learns from narrated educational pathology videos.
 It describes what it sees in a pathology image or video clip and gives a diagnosis, the way a pathologist talks through a case.
 
-- **Two instruction datasets** built from 6,610 educational YouTube videos:
-  - **ClipDesc-Instruct**: 139,941 descriptive clips
-  - **ViDRiP-Instruct**: 4,036 manually curated videos that follow each case from tissue findings to a diagnosis
+- **Two instruction datasets** built from 5,796 educational YouTube videos:
+  - **ClipDesc-Instruct**: 139,941 descriptive clips (661 h) from 4,223 YouTube videos
+  - **ViDRiP-Instruct**: 4,036 manually curated videos (239 h) from 3,194 YouTube videos, each following a case from tissue findings to a diagnosis
+  - **Video test set**: 502 videos (28 h) from 214 YouTube videos, held out from training
 - **Curriculum training**: image–text alignment, image instruction tuning, ClipDesc-Instruct, then ViDRiP-Instruct
 - **One model for images, videos and whole slides**: single images and frame sequences directly; whole-slide images through a retrieval agent (DxGRA)
 
