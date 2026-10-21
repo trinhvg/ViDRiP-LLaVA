@@ -41,10 +41,19 @@ It describes what it sees in a pathology image or video clip and gives a diagnos
 
 ## 🤖 Models
 
-| Model | Training stages | Best for |
-|:--|:--|:--|
-| [**ViDRiP-LLaVA-SigLIP**](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP) | 0 → 1 → ClipDesc → ViDRiP-Instruct | Open-ended diagnostic descriptions |
-| [**ViDRiP-LLaVA-SigLIP-wo-ClipDesc**](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP-wo-ClipDesc) | 0 → 1 → ViDRiP-Instruct | Multiple-choice questions |
+<table>
+  <tr><th align="left">Model</th><th align="left">Training stages</th><th align="left">Best for</th></tr>
+  <tr>
+    <td nowrap><a href="https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP"><b>ViDRiP-LLaVA-SigLIP</b></a></td>
+    <td nowrap>0 → 1 → ClipDesc → ViDRiP-Instruct</td>
+    <td nowrap>Open-ended diagnostic descriptions</td>
+  </tr>
+  <tr>
+    <td nowrap><a href="https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP-wo-ClipDesc"><b>ViDRiP-LLaVA-SigLIP-wo-ClipDesc</b></a></td>
+    <td nowrap>0 → 1 → ViDRiP-Instruct</td>
+    <td nowrap>Multiple-choice questions</td>
+  </tr>
+</table>
 
 Both use the SigLIP image encoder and a Qwen2.5-7B language decoder (LLaVA-OneVision architecture).
 
@@ -57,9 +66,14 @@ Both use the SigLIP image encoder and a Qwen2.5-7B language decoder (LLaVA-OneVi
 
 ### ViDRiP-Instruct (video)
 
-| Split | Content | Link |
-|:--|:--|:--|
-| Train | 4,036 instruction–response pairs (JSON) + videos (~60 GB, 6 zip parts) | [🤗 trinhvg/ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train) |
+<table>
+  <tr><th align="left">Split</th><th align="left">Content</th><th align="left">Link</th></tr>
+  <tr>
+    <td nowrap>Train</td>
+    <td>4,036 instruction–response pairs (JSON) + videos (~60 GB, 6 zip parts)</td>
+    <td nowrap><a href="https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train">🤗 trinhvg/ViDRiP_Instruct_Train</a></td>
+  </tr>
+</table>
 
 Each sample has a pathology video clip, a diagnostic question, and an answer that links the morphology to a diagnosis.
 
