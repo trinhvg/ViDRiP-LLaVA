@@ -17,7 +17,7 @@ It describes what it sees in a pathology image or video clip and gives a diagnos
 - **One model for images, videos and whole slides**: single images and frame sequences directly; whole-slide images through a retrieval agent (DxGRA)
 
 <p align="center">
-  <img src="assets/Network.png" width="80%">
+  <img src="assets/Figure1.png" width="100%">
 </p>
 
 ---
