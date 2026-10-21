@@ -1,154 +1,128 @@
+# 🧬 ViDRiP-LLaVA
 
-# 🧬 ViDRiP-LLaVA: A Dataset and Benchmark for Diagnostic Reasoning from Pathology Videos
+**Learning diagnostic reasoning from narrated pathology videos for images, videos and whole slides**
 
-**ViDRiP-LLaVA** is a vision-language framework designed for instruction-based diagnostic reasoning using both image patches and video clips from pathology slides. It builds on LLaVA and extends it to the medical domain with domain-specific datasets and fine-tuned models.
+[![Model: ViDRiP-LLaVA-SigLIP](https://img.shields.io/badge/🤗%20Model-ViDRiP--LLaVA--SigLIP-yellow)](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP)
+[![Model: wo-ClipDesc](https://img.shields.io/badge/🤗%20Model-ViDRiP--LLaVA--SigLIP--wo--ClipDesc-yellow)](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP-wo-ClipDesc)
+[![Dataset: ViDRiP-Instruct](https://img.shields.io/badge/🤗%20Dataset-ViDRiP__Instruct-blue)](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train)
+[![License: CC BY-NC 3.0](https://img.shields.io/badge/License-CC%20BY--NC%203.0-lightgrey)](https://creativecommons.org/licenses/by-nc/3.0/)
 
+ViDRiP-LLaVA is a pathology vision–language model that learns from narrated educational pathology videos.
+It describes what it sees in a pathology image or video clip and gives a diagnosis, the way a pathologist talks through a case.
 
-🧠 Introducing our ViDRiP-LLaVA: the first multimodal model for diagnostic reasoning in pathology through video-based instruction. 🔬📽️
+- **Two instruction datasets** built from 6,610 educational YouTube videos:
+  - **ClipDesc-Instruct**: 139,941 descriptive clips
+  - **ViDRiP-Instruct**: 4,036 manually curated videos that follow each case from tissue findings to a diagnosis
+- **Curriculum training**: image–text alignment, image instruction tuning, ClipDesc-Instruct, then ViDRiP-Instruct
+- **One model for images, videos and whole slides**: single images and frame sequences directly; whole-slide images through a retrieval agent (DxGRA)
 
-Our method leverages chain-of-thought (CoT) prompting to distill the reasoning capabilities of LLMs. ViDRiP-LLaVA generates both detailed histological descriptions and final diagnoses, simulating how pathologists analyze and sign out cases.
-
-📚 Trained on 4,278 instructional video pairs
-
-⚙️ Combines single-image + clip transfer and fine-tuning on segmented diagnostic videos
-
-
----
-<p align="center" width="100%">
-<img src="assets/Network.png"  width="80%" height="80%">
+<p align="center">
+  <img src="assets/Network.png" width="80%">
 </p>
-
-
-## 📚 Video Datasets
-
-### 🎥 Released Video Format
-
-All clips are:
-- **Cleaned** using a Visual Data Refinement pipeline (temporal trimming + YoloPath filtering + OCR exclusion + inpainting)
-- **Downsampled** to **1–5 FPS** to reduce file size and support fair-use compliance
-- **Muted** to avoid redistribution of original YouTube audio
-
-These steps preserve diagnostic signal while respecting the rights of YouTube creators and complying with [YouTube’s Terms of Service](https://www.youtube.com/t/terms).
-
-### 🔍 Training vs. Public Release Notice
-The ViDRiP-LLaVA models were trained on an internal dataset version that included:
-- Full-frame-rate video clips
-- Visual content **prior to OCR filtering**
-
-All **evaluations** (including those in our benchmark) are conducted using the **publicly released test set**, ensuring full reproducibility.
-
-
-### 🔹 [ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train)
-The videos data is ~ 60 GB:
-
-[//]: # (### 🔹 [ViDRiP_Instruct_Train_Video_GoogleDrive]&#40;https://drive.google.com/drive/folders/1oxZlaJpE7PGDYt32LeoGgIzwEvWdnupY?usp=sharing&#41;)
-### 🔹 [ViDRiP_Instruct_Train_Video_Hugging Face](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train) (There is 6 zip files)
-
-- 4,000+ instruction-style samples
-- Each sample includes:
-  - A pathology video clip
-  - A diagnostic question
-  - A multi-turn reasoning answer
-- Format: JSON + MP4
-- Croissant-compliant metadata for structured use
-
-### 🔹 [ViDRiP_Instruct_Test](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Test)
-### 🔹 [ViDRiP_Instruct_Test_Video](https://drive.google.com/drive/folders/1oxZlaJpE7PGDYt32LeoGgIzwEvWdnupY?usp=sharing)
-
-- Held-out test set of diagnostic Q&A pairs
-- Used for benchmarking reasoning performance
-
-
-
-## 📚 Image Datasets
-We use publicly available datasets: Quilt-LLaVA and PathAsst.
-Please refer to their respective repositories for download instructions.
-- [**Quilt-LLaVA**](https://github.com/aldraus/quilt-llava): A vision-language dataset for pathology adapted from LLaVA.
-- [**PathAsst**](https://github.com/superjamessyx/Generative-Foundation-AI-Assistant-for-Pathology): A generative assistant for pathology with curated image-text pairs.
-
 
 ---
 
 ## 🤖 Models
 
-### 🔸 [ViDRiP-LLaVA-SigLIP](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP)
+| Model | Training stages | Best for |
+|:--|:--|:--|
+| [**ViDRiP-LLaVA-SigLIP**](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP) | 0 → 1 → ClipDesc → ViDRiP-Instruct | Open-ended diagnostic descriptions |
+| [**ViDRiP-LLaVA-SigLIP-wo-ClipDesc**](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP-wo-ClipDesc) | 0 → 1 → ViDRiP-Instruct | Multiple-choice questions |
 
-- Full model: stages 0 and 1, ClipDesc, then ViDRiP-Instruct
-- Best for open-ended diagnostic descriptions
-
-### 🔸 [ViDRiP-LLaVA-SigLIP-wo-ClipDesc](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP-wo-ClipDesc)
-
-- Stages 0 and 1, then ViDRiP-Instruct (no ClipDesc stage)
-- Best for multiple-choice questions
+Both use the SigLIP image encoder and a Qwen2.5-7B language decoder (LLaVA-OneVision architecture).
 
 > CONCH- and MUSK-based weights are not released: their encoder licences (CC BY-NC-ND 4.0) do not allow redistribution.
+> They can be reproduced with the training code and data here, using encoders obtained from their licensors.
 
+---
 
+## 📚 Data
 
+### ViDRiP-Instruct (video)
 
-## 🚀 Quickstart
+| Split | Content | Link |
+|:--|:--|:--|
+| Train | 4,036 instruction–response pairs (JSON) + videos (~60 GB, 6 zip parts) | [🤗 trinhvg/ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train) |
+| Test | Held-out diagnostic Q&A (JSON) + videos | `ViDRiP_Instruct_Test/` in the same 🤗 dataset · [Google Drive](https://drive.google.com/drive/folders/1oxZlaJpE7PGDYt32LeoGgIzwEvWdnupY?usp=sharing) |
 
-### 🔧 Fine-tuning the model on video dataset
-```bash
-./scripts/train/finetune_ov_video.sh
-```
+Each sample has a pathology video clip, a diagnostic question, and an answer that links the morphology to a diagnosis.
 
-### 🪄 Fine-tuning with LoRA
-```bash
-./scripts/train/finetune_ov_video_lora.sh
-```
-🔗 Merge LoRA weights
-```bash
-./scripts/train/merge_lora_weights.py
-```
-### 🧪 Usage / Demo
-```bash
-./doc/ViDRiP_LLaVA_trial.py
-```
+**Released video format.** All clips are cleaned (temporal trimming, YoloPath tissue filtering, OCR text exclusion and inpainting),
+downsampled to 1–5 FPS and muted, to respect the rights of the original creators and [YouTube's Terms of Service](https://www.youtube.com/t/terms).
 
+**Training vs. released data.** The models were trained on an internal version of the clips at full frame rate and before OCR filtering.
+All evaluations use the publicly released test set.
 
-### 🔧 Evaluate on our video dataset
+### Image data
 
-We use [lmms_eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) to evaluate the performance of video diagnostic reasoning.
+Image stages use public datasets; please download them from their own repositories:
+[Quilt-LLaVA](https://github.com/aldraus/quilt-llava) and [PathAsst](https://github.com/superjamessyx/Generative-Foundation-AI-Assistant-for-Pathology).
 
-To benchmark `ViDRiP-LLaVA` and compare it with other models:
+---
 
-1. Clone the `lmms_eval` repo
-2. Copy our evaluation task folder into it:
+## 🚀 Quick start
+
+### Install
 
 ```bash
-cp -r lmms_eval/tasks/ViDRiP_Instruct_Test /path/to/lmms_eval/tasks/
+git clone https://github.com/trinhvg/ViDRiP-LLaVA.git
+cd ViDRiP-LLaVA
+pip install -e ".[train]"
 ```
-You can then run evaluation using the standard lmms_eval CLI interface.
 
+### Inference
 
-### Citation:
-Coming soon
+```python
+from llava.model.builder import load_pretrained_model
 
+tokenizer, model, image_processor, max_length = load_pretrained_model(
+    "trinhvg/ViDRiP-LLaVA-SigLIP", None, "llava_qwen", device_map="auto", attn_implementation="sdpa"
+)
+```
 
+A complete image/video example (32 uniformly sampled frames) is in [`docs/VidDiag_LLaVA_trial.py`](docs/VidDiag_LLaVA_trial.py).
 
-## 📄 Usage and License Notices
+### Training
 
-**ViDRiP-LLaVA** (Vision-language Diagnostic Reasoning in Pathology), including its dataset, code, and model checkpoints, is released strictly for **non-commercial research purposes only**.
+```bash
+# Fine-tune on the video data (full)
+bash scripts/train/finetune_ov_video.sh
 
-### 📁 Licenses
+# Fine-tune with LoRA, then merge the LoRA weights
+bash scripts/train/finetune_ov_video_lora.sh
+python scripts/train/merge_lora_weights.py
+```
 
-* **Dataset:**
-  Licensed under [**CC BY-NC-ND 3.0**](https://creativecommons.org/licenses/by-nc-nd/3.0/) (Attribution–NonCommercial–NoDerivatives)
-* **Code and pretrained models:**
-  Licensed under [**CC BY-NC 3.0**](https://creativecommons.org/licenses/by-nc/3.0/) (Attribution–NonCommercial)
+### Evaluation
 
-### ⚙️ Dependencies and Components
+Video diagnosis is evaluated with [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval). Copy our task into your lmms-eval clone and run it with the standard CLI:
 
-This project may incorporate or build upon resources such as **LLaVA-Next**, **QUILT-1M**, **LLaMA**, **PathAsst**, and **GPT-4**, each subject to their own licenses and **Terms of Use**.
+```bash
+cp -r lmms_eval/tasks/VidDiag_Instruct_Test /path/to/lmms-eval/lmms_eval/tasks/
+```
 
-### 🎥 Source Acknowledgment
+---
 
-ViDRiP-LLaVA includes data derived from **public educational pathology videos hosted on YouTube**.
-All content usage complies with [**YouTube’s Terms of Service**](https://www.youtube.com/t/terms), and the **intellectual property rights of the original pathologist creators are fully acknowledged and respected**.
+## 📝 Citation
 
-### 🚫 Restrictions
+Coming soon.
 
-* Not for **commercial use**
-* Not to be used in **clinical care** or **medical decision-making**
-* For **academic research, development, and evaluation only**
+---
+
+## 📄 License and intended use
+
+| Component | License |
+|:--|:--|
+| Code and model weights | [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/) |
+| Dataset | [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/) |
+
+- **Non-commercial research only.**
+- **Not for clinical use** or medical decision-making.
+- Builds on LLaVA-NeXT, Qwen2.5, SigLIP, Quilt-1M, PathAsst and GPT-4-family models, each under its own license and terms of use.
+
+The data are derived from public educational pathology videos on YouTube. The intellectual property of the original pathologist creators is fully acknowledged.
+
+## 🙏 Acknowledgements
+
+This code builds on [LLaVA-NeXT](https://github.com/LLaVA-VL/LLaVA-NeXT) and [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval).
+We thank the pathologists who share their teaching videos publicly.
