@@ -1,11 +1,27 @@
-# 🧬 ViDRiP-LLaVA
+<p align="center">
+  <img src="assets/vidrip_llava_icon.png" width="120" alt="ViDRiP-LLaVA">
+</p>
 
-**Learning diagnostic reasoning from narrated pathology videos for images, videos and whole slides**
+<h1 align="center">ViDRiP-LLaVA</h1>
 
-[![Model: ViDRiP-LLaVA-SigLIP](https://img.shields.io/badge/🤗%20Model-ViDRiP--LLaVA--SigLIP-yellow)](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP)
-[![Model: wo-ClipDesc](https://img.shields.io/badge/🤗%20Model-ViDRiP--LLaVA--SigLIP--wo--ClipDesc-yellow)](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP-wo-ClipDesc)
-[![Dataset: ViDRiP-Instruct](https://img.shields.io/badge/🤗%20Dataset-ViDRiP__Instruct-blue)](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train)
-[![License: CC BY-NC 3.0](https://img.shields.io/badge/License-CC%20BY--NC%203.0-lightgrey)](https://creativecommons.org/licenses/by-nc/3.0/)
+<p align="center">
+  <b>Learning diagnostic reasoning from narrated pathology videos for images, videos and whole slides</b>
+</p>
+
+<p align="center">
+  <a href="https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP"><img src="https://img.shields.io/badge/🤗%20Model-ViDRiP--LLaVA--SigLIP-yellow" alt="Model: ViDRiP-LLaVA-SigLIP"></a>
+  <a href="https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP-wo-ClipDesc"><img src="https://img.shields.io/badge/🤗%20Model-wo--ClipDesc-yellow" alt="Model: ViDRiP-LLaVA-SigLIP-wo-ClipDesc"></a>
+  <a href="https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train"><img src="https://img.shields.io/badge/🤗%20Dataset-ViDRiP--Instruct-blue" alt="Dataset: ViDRiP-Instruct"></a>
+  <a href="https://creativecommons.org/licenses/by-nc/3.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC%203.0-lightgrey" alt="License: CC BY-NC 3.0"></a>
+</p>
+
+<p align="center">
+  <a href="#-models">Models</a> ·
+  <a href="#-data">Data</a> ·
+  <a href="#-quick-start">Quick start</a> ·
+  <a href="#-citation">Citation</a> ·
+  <a href="#-license-and-intended-use">License</a>
+</p>
 
 ViDRiP-LLaVA is a pathology vision–language model that learns from narrated educational pathology videos.
 It describes what it sees in a pathology image or video clip and gives a diagnosis, the way a pathologist talks through a case.
