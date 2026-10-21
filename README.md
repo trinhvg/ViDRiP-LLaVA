@@ -44,7 +44,6 @@ Both use the SigLIP image encoder and a Qwen2.5-7B language decoder (LLaVA-OneVi
 | Split | Content | Link |
 |:--|:--|:--|
 | Train | 4,036 instruction–response pairs (JSON) + videos (~60 GB, 6 zip parts) | [🤗 trinhvg/ViDRiP_Instruct_Train](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train) |
-| Test | Held-out diagnostic Q&A (JSON) + videos (`Test_Videos.zip`) | [🤗 ViDRiP_Instruct_Train/ViDRiP_Instruct_Test](https://huggingface.co/datasets/trinhvg/ViDRiP_Instruct_Train/tree/main/ViDRiP_Instruct_Test) |
 
 Each sample has a pathology video clip, a diagnostic question, and an answer that links the morphology to a diagnosis.
 
@@ -52,7 +51,7 @@ Each sample has a pathology video clip, a diagnostic question, and an answer tha
 downsampled to 1–5 FPS and muted, to respect the rights of the original creators and [YouTube's Terms of Service](https://www.youtube.com/t/terms).
 
 **Training vs. released data.** The models were trained on an internal version of the clips at full frame rate and before OCR filtering.
-All evaluations use the publicly released test set.
+The 502-video benchmark used in the paper is held out and available on request.
 
 ### Image data
 
@@ -96,7 +95,7 @@ python scripts/train/merge_lora_weights.py
 
 ### Evaluation
 
-Video diagnosis is evaluated with [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval). Copy our task into your lmms-eval clone and run it with the standard CLI:
+Video diagnosis is evaluated with [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval). Copy our task into your lmms-eval clone and run it with the standard CLI (the held-out benchmark videos are available on request):
 
 ```bash
 cp -r lmms_eval/tasks/VidDiag_Instruct_Test /path/to/lmms-eval/lmms_eval/tasks/
