@@ -71,19 +71,16 @@ Please refer to their respective repositories for download instructions.
 
 ## 🤖 Models
 
-### 🔸 [ViDRiP_LLaVA_video](https://huggingface.co/trinhvg/ViDRiP_LLaVA_video)
+Two SigLIP-based checkpoints are released (SigLIP image encoder + Qwen2.5-7B decoder, LLaVA-OneVision architecture):
 
-- Vision-language model for video-based diagnostic reasoning
-- Trained on `ViDRiP_Instruct_Train`
-- Suitable for:
-  - Medical VQA
-  - Instructional explanation generation
-  - Educational pathology summarization
+| Checkpoint | Training stages | Best for |
+|---|---|---|
+| 🔸 [ViDRiP-LLaVA-SigLIP](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP) | 0 and 1, ClipDesc, then ViDRiP-Instruct | Open-ended diagnostic descriptions |
+| 🔸 [ViDRiP-LLaVA-SigLIP-wo-ClipDesc](https://huggingface.co/trinhvg/ViDRiP-LLaVA-SigLIP-wo-ClipDesc) | 0 and 1, then ViDRiP-Instruct | Multiple-choice questions |
 
-### 🔸 [ViDRiP_LLaVA_image](https://huggingface.co/trinhvg/ViDRiP_LLaVA_image)
+These repositories were previously named `trinhvg/ViDRiP_LLaVA_video` and `trinhvg/ViDRiP_LLaVA_image`.
 
-- Vision-language model for patch-based diagnostic prompts
-- Useful for pathology captioning and single-frame inference
+**Note:** the CONCH- and MUSK-based ViDRiP-LLaVA weights are not released. They contain fine-tuned copies of the CONCH v1.5 and MUSK encoders, whose licenses (CC BY-NC-ND 4.0) do not permit redistribution of derivatives. They can be reproduced with the released training code and instruction data by researchers who obtain the encoders from their licensors.
 
 
 
