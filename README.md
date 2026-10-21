@@ -156,4 +156,5 @@ The data are derived from public educational pathology videos on YouTube. The in
 
 This code builds on [LLaVA-NeXT](https://github.com/LLaVA-VL/LLaVA-NeXT) and [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval).
 Image training uses data from [Quilt-1M and Quilt-LLaVA](https://github.com/aldraus/quilt-llava), [PathAsst](https://github.com/superjamessyx/Generative-Foundation-AI-Assistant-for-Pathology) and a bladder pathology image–text collection (Zhang et al., 2019); we thank their authors for releasing them.
-We thank the pathologists who share their teaching videos publicly.
+👏 **A special thank you to the pathologists who share their teaching videos publicly.** 🔬🎥
+Their generosity in explaining cases on camera made this work possible, and every ViDRiP-Instruct example starts from their expertise. 🙏
